@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+
+        </div>
+        <div class="col-6">
+            {% for detail in details %}<br>
+            Name: {{detail.Customer_name}}<br>
+            Account No:{{detail.Account_no}}<br>
+            Email:{{detail.email}}<br>
+
+
+            <a href="{%url 'deposit' detail.id%}" class="btn btn-primary btn-lg">Deposit</a>
+            <a href="{%url 'withdraw' detail.id%}" class="btn btn-primary btn-lg">Withdraw</a>
+            <a href="{%url 'transfer' detail.id%}" class="btn btn-primary btn-lg">Transfer</a>
+            <br><br>
+            <a href="{%url 'view_balance' detail.id%}" class="btn btn-success btn-lg">view balance</a>
+            <a href="{%url 'transfer_details' detail.id%}" class="btn btn-success btn-lg">Transfer History</a>
+            {%endfor%}
+        </div>
+        <div class="col-3">
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
